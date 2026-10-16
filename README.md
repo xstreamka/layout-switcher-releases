@@ -1,4 +1,4 @@
-# Layout Memory
+# Layout Switcher
 
 Расширение GNOME Shell, которое запоминает раскладку клавиатуры для каждого
 приложения, а в Google Chrome — отдельно для полей каждого сайта; адресная
@@ -56,11 +56,11 @@ Go и другие инструменты сборки не нужны: в ар�
 
    Скрипт копирует файлы в домашний каталог (sudo не нужен):
    - расширение GNOME — в
-     `~/.local/share/gnome-shell/extensions/layout-memory@example.com/`;
-   - расширение Chrome — в `~/.local/share/layout-memory/browser/`;
+     `~/.local/share/gnome-shell/extensions/layout-switcher@example.com/`;
+   - расширение Chrome — в `~/.local/share/layout-switcher/browser/`;
    - мост между Chrome и GNOME — в
-     `~/.local/lib/layout-memory/layout-memory-bridge` и регистрирует его
-     в Chrome (`~/.config/google-chrome/NativeMessagingHosts/layout_memory.bridge.json`).
+     `~/.local/lib/layout-switcher/layout-switcher-bridge` и регистрирует его
+     в Chrome (`~/.config/google-chrome/NativeMessagingHosts/layout_switcher.bridge.json`).
 
    После установки распакованную папку и архив можно удалить.
 
@@ -68,13 +68,13 @@ Go и другие инструменты сборки не нужны: в ар�
    расширение:
 
    ```bash
-   gnome-extensions enable layout-memory@example.com
+   gnome-extensions enable layout-switcher@example.com
    ```
 
 4. Chrome — в каждом профиле, где нужны раздельные раскладки:
    1. Откройте `chrome://extensions` и включите «Режим разработчика».
    2. «Загрузить распакованное расширение» → папка
-      `~/.local/share/layout-memory/browser` (скрытую папку `.local` в окне
+      `~/.local/share/layout-switcher/browser` (скрытую папку `.local` в окне
       выбора показывает Ctrl+H). ID расширения постоянный:
       `iidcidginfikmkbmoihponjkhdcdockj`.
    3. Для окон инкогнито: «Сведения» расширения → «Разрешить в режиме
@@ -91,7 +91,7 @@ Go и другие инструменты сборки не нужны: в ар�
    `./install.sh` (как в «Установке», шаги 1–2) — новые файлы заменят
    прежние, запомненные раскладки сохранятся.
 2. Перезапустите GNOME Shell: Alt+F2 → `r` → Enter.
-3. В `chrome://extensions` нажмите кнопку обновления ⟳ у Layout Memory
+3. В `chrome://extensions` нажмите кнопку обновления ⟳ у Layout Switcher
    (в каждом профиле).
 
 ## Удаление
@@ -108,8 +108,8 @@ Go и другие инструменты сборки не нужны: в ар�
 
 Скрипт выключает расширение GNOME, удаляет его, копию расширения Chrome,
 мост и его регистрацию в Chrome. Запомненные раскладки
-(`~/.config/layout-memory/`) остаются — удалите эту папку вручную, если они не
-нужны. Само расширение Chrome удаляется в `chrome://extensions` → Layout Memory
+(`~/.config/layout-switcher/`) остаются — удалите эту папку вручную, если они не
+нужны. Само расширение Chrome удаляется в `chrome://extensions` → Layout Switcher
 → «Удалить» (в каждом профиле).
 
 ## Что запоминается
@@ -170,11 +170,11 @@ Go и другие инструменты сборки не нужны: в ар�
 
 ## Просмотр и правка запомненного
 
-- **Окно настроек GNOME** — шестерёнка у Layout Memory в приложении
-  «Расширения» или `gnome-extensions prefs layout-memory@example.com`.
+- **Окно настроек GNOME** — шестерёнка у Layout Switcher в приложении
+  «Расширения» или `gnome-extensions prefs layout-switcher@example.com`.
   Разделы «Приложения» и «Google Chrome» (запомненные сайты), поиск, выбор
   раскладки в строке, «Забыть» и «Забыть всё».
-- **Всплывающее окно Chrome** — клик по значку Layout Memory на панели Chrome
+- **Всплывающее окно Chrome** — клик по значку Layout Switcher на панели Chrome
   (если значка не видно — меню расширений, значок пазла, там его можно
   закрепить). «Текущая вкладка» — раскладка полей текущего сайта (её можно
   задать заранее), «Сайты» — все запомненные сайты с поиском и «Забыть все
@@ -188,12 +188,12 @@ Go и другие инструменты сборки не нужны: в ар�
 
 ## Данные
 
-- `~/.config/layout-memory/apps.json` — запомненные раскладки
+- `~/.config/layout-switcher/apps.json` — запомненные раскладки
   (`{"приложение или сайт": "раскладка"}`). Смотреть и править их удобнее
   в окнах выше. Руками файл можно править только при выключенном расширении:
   во время работы оно перезапишет ваши правки. Если файл окажется битым, он
   переименовывается в `apps.json.broken`, и память начинается с пустой.
-- `~/.config/layout-memory/state.json` — исходное значение встроенного режима
+- `~/.config/layout-switcher/state.json` — исходное значение встроенного режима
   GNOME «своя раскладка для каждого окна». Этот режим спорит с расширением,
   поэтому при включении расширение его выключает, а при выключении —
   возвращает как было.
@@ -220,9 +220,9 @@ Go и другие инструменты сборки не нужны: в ар�
 Ошибки расширения GNOME и моста — в журнале:
 
 ```bash
-journalctl --user -f -o cat /usr/bin/gnome-shell | grep layout-memory
-journalctl --user -f | grep layout-memory-bridge
+journalctl --user -f -o cat /usr/bin/gnome-shell | grep layout-switcher
+journalctl --user -f | grep layout-switcher-bridge
 ```
 
-Ошибки расширения Chrome — в `chrome://extensions` → Layout Memory →
+Ошибки расширения Chrome — в `chrome://extensions` → Layout Switcher →
 «Ошибки».
