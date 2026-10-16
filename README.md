@@ -32,14 +32,14 @@ Go и другие инструменты сборки не нужны: в ар�
 ## Установка
 
 1. Скачайте со страницы
-   [Releases](https://github.com/xstreamka/layout-switcher/releases) два файла
+   [Releases](https://github.com/xstreamka/layout-switcher-releases/releases) два файла
    последнего релиза: `layout-switcher_<версия>.tar.gz` и `SHA256SUMS`.
    Или в терминале (подставьте номер версии):
 
    ```bash
    VERSION=1.0.0
-   curl -LO "https://github.com/xstreamka/layout-switcher/releases/download/v$VERSION/layout-switcher_$VERSION.tar.gz"
-   curl -LO "https://github.com/xstreamka/layout-switcher/releases/download/v$VERSION/SHA256SUMS"
+   curl -LO "https://github.com/xstreamka/layout-switcher-releases/releases/download/v$VERSION/layout-switcher_$VERSION.tar.gz"
+   curl -LO "https://github.com/xstreamka/layout-switcher-releases/releases/download/v$VERSION/SHA256SUMS"
    ```
 
 2. Проверьте архив, распакуйте и запустите установку:
@@ -103,7 +103,7 @@ Go и другие инструменты сборки не нужны: в ар�
 ```
 
 Если распакованную папку уже удалили — скачайте архив любой версии со
-страницы [Releases](https://github.com/xstreamka/layout-switcher/releases),
+страницы [Releases](https://github.com/xstreamka/layout-switcher-releases/releases),
 распакуйте и запустите в нём `./install.sh uninstall`.
 
 Скрипт выключает расширение GNOME, удаляет его, копию расширения Chrome,
