@@ -37,7 +37,7 @@ Go и другие инструменты сборки не нужны: в ар�
    Или в терминале (подставьте номер версии):
 
    ```bash
-   VERSION=1.0.0
+   VERSION=1.0.1
    curl -LO "https://github.com/xstreamka/layout-switcher-releases/releases/download/v$VERSION/layout-switcher_$VERSION.tar.gz"
    curl -LO "https://github.com/xstreamka/layout-switcher-releases/releases/download/v$VERSION/SHA256SUMS"
    ```
